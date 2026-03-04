@@ -1,4 +1,4 @@
-.PHONY: start start-dev stop status logs logs-follow logs-errors logs-clear build build-cgo deps clean help install bump-version
+.PHONY: start start-dev stop status logs logs-follow logs-errors logs-clear build deps clean help install release
 
 # Project paths
 PROJECT_ROOT := $(shell pwd)
@@ -11,6 +11,10 @@ ERROR_LOG := $(LOGS_DIR)/reconya.error.log
 
 # Default port
 PORT ?= 3008
+
+# Version from VERSION file
+VERSION := $(shell cat VERSION 2>/dev/null || echo "dev")
+LDFLAGS := -ldflags "-X reconya/assets.Version=$(VERSION)"
 
 # Colors for output
 GREEN := \033[0;32m
@@ -31,7 +35,7 @@ start:
 	@mkdir -p $(LOGS_DIR)
 	@$(MAKE) -s stop-silent
 	@echo "$(BLUE)[INFO]$(NC) Starting backend as daemon..."
-	@cd $(BACKEND_DIR) && nohup go run ./cmd > $(LOG_FILE) 2> $(ERROR_LOG) & echo $$! > $(PID_FILE)
+	@cd $(BACKEND_DIR) && nohup go run $(LDFLAGS) ./cmd > $(LOG_FILE) 2> $(ERROR_LOG) & echo $$! > $(PID_FILE)
 	@sleep 2
 	@if [ -f $(PID_FILE) ] && kill -0 $$(cat $(PID_FILE)) 2>/dev/null; then \
 		echo "$(GREEN)[SUCCESS]$(NC) reconYa daemon started with PID: $$(cat $(PID_FILE))"; \
@@ -55,7 +59,7 @@ start-dev:
 	@echo "$(BLUE)[INFO]$(NC) reconYa backend will run on: http://localhost:$(PORT)"
 	@echo "$(BLUE)[INFO]$(NC) Press Ctrl+C to stop the service"
 	@echo ""
-	@cd $(BACKEND_DIR) && go run ./cmd
+	@cd $(BACKEND_DIR) && go run $(LDFLAGS) ./cmd
 
 ## Stop reconYa backend
 stop:
@@ -115,14 +119,8 @@ logs-clear:
 
 ## Build the backend binary
 build:
-	@echo "Building reconYa backend..."
-	@cd $(BACKEND_DIR) && go build -o reconya -v ./cmd
-	@echo "$(GREEN)[SUCCESS]$(NC) Build complete: $(BACKEND_DIR)/reconya"
-
-## Build with CGO enabled (required for SQLite)
-build-cgo:
-	@echo "Building reconYa backend with CGO..."
-	@cd $(BACKEND_DIR) && CGO_ENABLED=1 go build -o reconya -v ./cmd
+	@echo "Building reconYa backend (v$(VERSION))..."
+	@cd $(BACKEND_DIR) && CGO_ENABLED=1 go build -trimpath $(LDFLAGS) -o reconya -v ./cmd
 	@echo "$(GREEN)[SUCCESS]$(NC) Build complete: $(BACKEND_DIR)/reconya"
 
 ## Download and tidy dependencies
@@ -169,9 +167,13 @@ install:
 	@echo "$(GREEN)[SUCCESS]$(NC) Installation complete!"
 	@echo "Run 'make start' to start reconYa"
 
-## Bump version
-bump-version:
-	@$(SCRIPTS_DIR)/bump-version.sh
+## Bump version, tag, and show push instructions. Usage: make release V=0.25.0
+release:
+	@if [ -z "$(V)" ]; then \
+		echo "$(RED)[ERROR]$(NC) Version required. Usage: make release V=0.25.0"; \
+		exit 1; \
+	fi
+	@$(SCRIPTS_DIR)/bump-version.sh $(V)
 
 #-----------------------------------------------------------------------
 # Help
@@ -197,10 +199,11 @@ help:
 	@echo ""
 	@echo "Build targets:"
 	@echo "  build        Build the backend binary"
-	@echo "  build-cgo    Build with CGO (for SQLite)"
 	@echo "  deps         Download dependencies"
 	@echo "  clean        Clean build artifacts"
 	@echo ""
 	@echo "Setup targets:"
 	@echo "  install      Initial setup"
-	@echo "  bump-version Bump project version"
+	@echo ""
+	@echo "Release targets:"
+	@echo "  release V=x.y.z  Bump version, commit, tag (then git push origin vx.y.z)"
