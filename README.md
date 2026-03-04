@@ -243,6 +243,19 @@ rm -rf reconya # Remove the directory
 
 Docker files are available in the `experimental/` directory but are not recommended due to network isolation limitations that prevent proper MAC address discovery. Use local installation for full functionality.
 
+## 💖 Support the Project
+
+If you find reconYa useful, consider supporting its development:
+
+<p align="center">
+  <a href="https://github.com/sponsors/chrisvel"><img src="https://img.shields.io/badge/GitHub_Sponsors-Support-ea4aaa?logo=githubsponsors&logoColor=white&style=for-the-badge" alt="GitHub Sponsors"></a>
+  <a href="https://www.patreon.com/ChrisVeleris"><img src="https://img.shields.io/badge/Patreon-Support-F96854?logo=patreon&logoColor=white&style=for-the-badge" alt="Patreon"></a>
+  <a href="https://coff.ee/chrisveleris"><img src="https://img.shields.io/badge/Buy_Me_a_Coffee-Support-FFDD00?logo=buymeacoffee&logoColor=black&style=for-the-badge" alt="Buy Me a Coffee"></a>
+  <a href="https://www.paypal.com/donate/?hosted_button_id=QEQCKLXPB6XAE"><img src="https://img.shields.io/badge/PayPal-Donate-0070BA?logo=paypal&logoColor=white&style=for-the-badge" alt="PayPal"></a>
+</p>
+
+Your support helps keep reconYa free, open-source, and actively maintained. Every contribution — big or small — makes a difference!
+
 ## Contributing
 
 1. Fork the repository

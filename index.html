@@ -292,10 +292,7 @@
                             <a class="nav-link" href="#installation">Setup</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#architecture">Tech</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contribute">Contribute</a>
+                            <a class="nav-link" href="#support">Support</a>
                         </li>
                         <li class="nav-item ms-lg-3">
                             <a class="btn btn-primary" href="https://github.com/Dyneteq/reconya" target="_blank">
@@ -453,145 +450,79 @@
             </div>
         </section>
 
-        <!-- Architecture Section -->
-        <section id="architecture" class="section">
-            <div class="container">
-                <h2 class="section-title">Architecture</h2>
-                <div class="row g-4">
-                    <div class="col-lg-6">
-                        <div class="card h-100 p-4">
-                            <h3 class="h4 fw-bold">Technology Stack</h3>
-                            <ul class="list-unstyled tech-list">
-                                <li class="mb-3">
-                                    <i class="bi bi-code-square text-primary me-2"></i>
-                                    <strong>Backend:</strong> Go API server with SQLite for storage
-                                </li>
-                                <li class="mb-3">
-                                    <i class="bi bi-brush text-primary me-2"></i>
-                                    <strong>Frontend:</strong> HTMX templates with responsive Bootstrap UI
-                                </li>
-                                <li class="mb-3">
-                                    <i class="bi bi-search text-primary me-2"></i>
-                                    <strong>Scanning:</strong> Network operations through native Go libraries
-                                </li>
-                                <li class="mb-3">
-                                    <i class="bi bi-arrow-repeat text-primary me-2"></i>
-                                    <strong>Real-time:</strong> Polling system with configurable intervals
-                                </li>
-                                <li>
-                                    <i class="bi bi-terminal text-primary me-2"></i>
-                                    <strong>Deployment:</strong> Simple Makefile-based installation and management
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card h-100 p-4">
-                            <h3 class="h4 fw-bold">Database: SQLite</h3>
-                            <p>The application uses SQLite for its database, offering several advantages:</p>
-                            <ul class="list-unstyled tech-list">
-                                <li class="mb-2">
-                                    <i class="bi bi-box text-primary me-2"></i>
-                                    Self-contained, no separate database service required
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-puzzle text-primary me-2"></i>
-                                    Simple setup with minimal configuration
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-house text-primary me-2"></i>
-                                    Perfect for personal or organizational deployments
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-feather text-primary me-2"></i>
-                                    Lightweight and portable
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-lock text-primary me-2"></i>
-                                    Data is stored locally in a single file
-                                </li>
-                                <li>
-                                    <i class="bi bi-x-circle text-primary me-2"></i>
-                                    No need for database administration
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Security Section -->
-        <section class="section bg-darker">
-            <div class="container">
-                <h2 class="section-title">Security Notes</h2>
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="card p-4">
-                            <ul class="list-unstyled tech-list">
-                                <li class="mb-3">
-                                    <i class="bi bi-key text-warning me-2"></i>
-                                    Always use strong passwords in production environments
-                                </li>
-                                <li class="mb-3">
-                                    <i class="bi bi-lock text-warning me-2"></i>
-                                    Use an <code>.env</code> file for all sensitive configuration
-                                </li>
-                                <li class="mb-3">
-                                    <i class="bi bi-shield text-warning me-2"></i>
-                                    Never expose the backend API directly to the internet
-                                </li>
-                                <li class="mb-3">
-                                    <i class="bi bi-person-badge text-warning me-2"></i>
-                                    Run with least privilege required for network scanning
-                                </li>
-                                <li class="mb-3">
-                                    <i class="bi bi-arrow-repeat text-warning me-2"></i>
-                                    Keep dependencies updated to patch security vulnerabilities
-                                </li>
-                                <li>
-                                    <i class="bi bi-bug text-warning me-2"></i>
-                                    Regularly test your deployment for security issues
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contribute Section -->
-        <section id="contribute" class="section">
-            <div class="container">
-                <h2 class="section-title">Contributing</h2>
-                <div class="row g-4">
-                    <div class="col-lg-6 mx-auto">
-                        <div class="card p-4">
-                            <p class="lead">Contributions are welcome! Please feel free to submit a Pull Request.</p>
-                            <ol class="text-light">
-                                <li class="mb-2">Fork the repository on GitHub</li>
-                                <li class="mb-2">Create your feature branch 
-                                    <div class="code-block my-2">
-                                        <code>git checkout -b feature/amazing-feature</code>
-                                    </div>
-                                </li>
-                                <li class="mb-2">Commit your changes 
-                                    <div class="code-block my-2">
-                                        <code>git commit -m 'Add some amazing feature'</code>
-                                    </div>
-                                </li>
-                                <li class="mb-2">Push to the branch 
-                                    <div class="code-block my-2">
-                                        <code>git push origin feature/amazing-feature</code>
-                                    </div>
-                                </li>
-                                <li>Open a Pull Request with a detailed description</li>
-                            </ol>
-                            <a href="https://github.com/Dyneteq/reconya/issues" class="btn btn-primary mt-3" target="_blank">
-                                <i class="bi bi-bug me-1"></i> Open an Issue
-                            </a>
-                        </div>
-                    </div>
+        <!-- Support Section -->
+        <section id="support" class="section bg-darker">
+            <style>
+                .sponsor-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 20px;
+                    max-width: 800px;
+                    margin: 0 auto;
+                }
+                .sponsor-link {
+                    background: rgba(15, 127, 0, 0.1);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(15, 127, 0, 0.3);
+                    border-radius: 15px;
+                    padding: 20px 15px;
+                    text-align: center;
+                    text-decoration: none;
+                    color: var(--text-color);
+                    font-weight: 600;
+                    font-size: 0.95rem;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+                }
+                .sponsor-link:hover {
+                    transform: translateY(-5px) scale(1.02);
+                    background: rgba(15, 127, 0, 0.2);
+                    border-color: rgba(15, 127, 0, 0.6);
+                    box-shadow: 0 10px 30px rgba(15, 127, 0, 0.2);
+                    color: var(--primary-color);
+                }
+                .sponsor-link i {
+                    font-size: 1.8rem;
+                    color: var(--primary-color);
+                }
+                @media (max-width: 768px) {
+                    .sponsor-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 15px;
+                    }
+                    .sponsor-link {
+                        padding: 15px 10px;
+                    }
+                    .sponsor-link i {
+                        font-size: 1.5rem;
+                    }
+                }
+            </style>
+            <div class="container text-center">
+                <h2 class="section-title" style="display: inline-block;">Support reconYa</h2>
+                <p class="col-md-8 mx-auto mb-5" style="color: var(--muted-text); font-size: 1.1rem;">
+                    <strong>reconYa</strong> is free and open-source. If you find it useful, consider supporting its development — every contribution keeps the project alive and growing.
+                </p>
+                <div class="sponsor-grid">
+                    <a href="https://github.com/sponsors/chrisvel" class="sponsor-link" target="_blank">
+                        <i class="bi bi-github"></i>
+                        <span>GitHub Sponsors</span>
+                    </a>
+                    <a href="https://www.patreon.com/ChrisVeleris" class="sponsor-link" target="_blank">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Patreon</span>
+                    </a>
+                    <a href="https://coff.ee/chrisveleris" class="sponsor-link" target="_blank">
+                        <i class="bi bi-cup-hot"></i>
+                        <span>Buy Me a Coffee</span>
+                    </a>
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=QEQCKLXPB6XAE" class="sponsor-link" target="_blank">
+                        <i class="bi bi-paypal"></i>
+                        <span>PayPal</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -610,8 +541,7 @@
                         <ul class="list-unstyled tech-list">
                             <li><a href="#features" class="text-light">FEATURES</a></li>
                             <li><a href="#installation" class="text-light">INSTALLATION</a></li>
-                            <li><a href="#architecture" class="text-light">ARCHITECTURE</a></li>
-                            <li><a href="#contribute" class="text-light">CONTRIBUTE</a></li>
+                            <li><a href="#support" class="text-light">SUPPORT</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-3">
